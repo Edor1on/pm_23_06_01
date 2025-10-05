@@ -1,3 +1,4 @@
+// Імпорт основних модулів Gulp
 const { src, dest, watch, series, parallel } = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const cssnano = require('gulp-cssnano');
@@ -5,45 +6,60 @@ const rename = require('gulp-rename');
 const uglify = require('gulp-uglify');
 const concat = require('gulp-concat');
 const imagemin = require('gulp-imagemin');
-const browserSync = require('browser-sync').create();
 const fileInclude = require('gulp-file-include');
+const browserSync = require('browser-sync').create();
 
-// HTML таска
+// ===== HTML =====
 const html_task = () => {
-    return src('app/*.html')
-        .pipe(fileInclude())
+    return src('app/html/*.html')
+        .pipe(fileInclude({
+            prefix: '@@',
+            basepath: '@file'
+        }))
         .pipe(dest('dist'))
         .pipe(browserSync.stream());
 };
 
-// SCSS таска
+// ===== SCSS =====
 const scss_task = () => {
     return src('app/scss/*.scss')
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass())
         .pipe(cssnano())
         .pipe(rename({ suffix: '.min' }))
         .pipe(dest('dist/css'))
         .pipe(browserSync.stream());
 };
 
-// JS таска
+// ===== JavaScript =====
 const js_task = () => {
     return src('app/js/*.js')
-        .pipe(concat('script.min.js'))
+        .pipe(concat('script.js'))
         .pipe(uglify())
+        .pipe(rename({ suffix: '.min' }))
         .pipe(dest('dist/js'))
         .pipe(browserSync.stream());
 };
 
-// Images таска
+// ===== Зображення =====
 const img_task = () => {
     return src('app/img/*')
         .pipe(imagemin())
-        .pipe(dest('dist/imgs'))
-        .pipe(browserSync.stream());
+        .pipe(dest('dist/img'));
 };
 
-// BrowserSync
+// ===== Bootstrap CSS =====
+const bootstrapCSS = () => {
+    return src('node_modules/bootstrap/dist/css/bootstrap.min.css')
+        .pipe(dest('dist/css'));
+};
+
+// ===== Bootstrap JS =====
+const bootstrapJS = () => {
+    return src('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js')
+        .pipe(dest('dist/js'));
+};
+
+// ===== BrowserSync =====
 const serve = () => {
     browserSync.init({
         server: {
@@ -54,15 +70,16 @@ const serve = () => {
     watch('app/*.html', html_task);
     watch('app/scss/*.scss', scss_task);
     watch('app/js/*.js', js_task);
-    watch('app/img/*', img_task);
 };
 
-// Експорти
+// ===== Експорти =====
 exports.html = html_task;
 exports.scss = scss_task;
 exports.js = js_task;
 exports.img = img_task;
+exports.bootstrapCSS = bootstrapCSS;
+exports.bootstrapJS = bootstrapJS;
 exports.default = series(
-    parallel(html_task, scss_task, js_task, img_task),
+    parallel(html_task, scss_task, js_task, img_task, bootstrapCSS, bootstrapJS),
     serve
 );
