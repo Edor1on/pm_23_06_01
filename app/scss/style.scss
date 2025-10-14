@@ -16,21 +16,30 @@ body {
 
 .resume {
   width: 210mm;
-  height: 297mm;
+  min-height: 297mm; /* ФІКС: Змінено height на min-height */
   margin: 2rem auto;
   background: #fff;
   border: 8px solid $accent;
   position: relative;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
+  /* ФІКС: Flexbox для розтягування колонок */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ФІКС: Розтягуємо row, щоб заповнити min-height */
+.resume > .row {
+  flex-grow: 1;
 }
 
 /* vertical divider between columns */
 .vertical-divider {
-  width: 1px;                   // тонша лінія
-  background: #000;             // темна, насичена
+  width: 1px;
+  background: #000;
   opacity: 0.85;
-  left: 36.5%;                  // між колонками, трохи правіше
+  left: 36.5%;
   z-index: 10;
 }
 
@@ -39,13 +48,13 @@ body {
   background: $left-bg;
   color: $dark;
   padding: 36px 28px;
-  min-height: 100%;
+  /* min-height: 100%; - більше не потрібен */
   text-align: center;
 }
 
 .profile-img {
-  width: 140px;
-  height: 140px;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   border-radius: 50%;
   border: 5px solid #fff;
@@ -60,19 +69,20 @@ body {
   color: darken($accent, 10%);
 }
 
-/* heading structure */
-@mixin section-heading {
+/* heading structure - BASE MIXIN */
+@mixin section-heading-base { /* Змінено назву міксину */
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 0.5rem;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 0.8px;
 }
 
+/* LEFT COLUMN HEADING (Centered) */
 .section-heading {
-  @include section-heading;
+  @include section-heading-base;
+  justify-content: center; /* Залишаємо по центру для лівої колонки */
 }
 
 .heading-text {
@@ -83,7 +93,7 @@ body {
 /* горизонтальні лінії у лівій колонці */
 .section-sep {
   border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.85); // той самий колір, що й вертикальна
+  border-top: 1px solid rgba(0, 0, 0, 0.85);
   margin: 14px 0;
 }
 
@@ -100,15 +110,17 @@ body {
   color: $dark;
 }
 
+/* ФІКС: RIGHT COLUMN HEADING (Left-aligned) */
 .section-right-heading {
-  @include section-heading;
+  @include section-heading-base;
+  justify-content: flex-start; /* Вирівнювання по лівому краю */
   color: $dark;
 }
 
 /* горизонтальні лінії у правій колонці */
 .hr-dark {
   border: 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.85); // та сама товщина й темність
+  border-top: 1px solid rgba(0, 0, 0, 0.85);
   margin: 16px 0;
 }
 
@@ -150,8 +162,13 @@ body {
 @media (max-width: 991px) {
   .resume {
     width: 100%;
-    height: auto;
+    /* ФІКС: Видаляємо flexbox у мобільному режимі */
+    display: block;
+    min-height: auto;
     border-width: 6px;
+  }
+  .resume > .row {
+    flex-grow: 0;
   }
   .vertical-divider {
     display: none;
