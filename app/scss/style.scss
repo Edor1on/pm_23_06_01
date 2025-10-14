@@ -1,38 +1,159 @@
+// ==================== VARIABLES ====================
+$font: 'Poppins', sans-serif;
+$left-bg: #A9E0C0; // насичений зелений фон лівої колонки
+$accent: #009688;  // бірюзовий
+$dark: #111;
+$muted: #6c757d;
+
+// ==================== BASE ====================
 body {
-  background-color: #f5f5f5;
-  font-family: 'Poppins', sans-serif;
-}
-
-.bg-teal {
-  background-color: #009688 !important;
-}
-
-.text-teal {
-  color: #009688 !important;
+  font-family: $font;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
 }
 
 .resume {
-  max-width: 900px;
-  border: 8px solid #009688;
+  width: 210mm;
+  height: 297mm;
+  margin: 2rem auto;
   background: #fff;
+  border: 8px solid $accent;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.progress-bar {
-  border-radius: 10px;
+/* vertical divider between columns */
+.vertical-divider {
+  width: 1px;                   // тонша лінія
+  background: #000;             // темна, насичена
+  opacity: 0.85;
+  left: 36.5%;                  // між колонками, трохи правіше
+  z-index: 10;
 }
 
-.profile-pic img {
-  border: 5px solid #fff;
-}
-
-aside {
+// ========== LEFT COLUMN ==========
+.left-column {
+  background: $left-bg;
+  color: $dark;
+  padding: 36px 28px;
   min-height: 100%;
+  text-align: center;
 }
 
-h5 {
+.profile-img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.icon-teal {
+  color: $accent !important;
+  transition: color 0.3s ease;
+}
+.icon-teal:hover {
+  color: darken($accent, 10%);
+}
+
+/* heading structure */
+@mixin section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+
+.section-heading {
+  @include section-heading;
+}
+
+.heading-text {
+  color: $dark;
+  font-size: 0.95rem;
+}
+
+/* горизонтальні лінії у лівій колонці */
+.section-sep {
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.85); // той самий колір, що й вертикальна
+  margin: 14px 0;
+}
+
+.left-column p {
+  color: $dark;
+  margin: 0 0 0.4rem 0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+// ========== RIGHT COLUMN ==========
+.right-column {
+  padding: 44px;
+  color: $dark;
+}
+
+.section-right-heading {
+  @include section-heading;
+  color: $dark;
+}
+
+/* горизонтальні лінії у правій колонці */
+.hr-dark {
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.85); // та сама товщина й темність
+  margin: 16px 0;
+}
+
+// SKILL BARS
+.skill-line {
+  height: 6px;
+  background: #e6eef0;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.skill-fill {
+  height: 100%;
+  background: $accent;
+  border-radius: 6px;
+}
+
+// LISTS & TEXT
+.right-column ul {
+  padding-left: 0;
+  list-style: none;
+  margin: 0;
+}
+.right-column li {
+  margin-bottom: 0.35rem;
+}
+
+.small {
+  font-size: 0.9rem;
+  color: $muted;
+}
+
+.fw-bold {
   font-weight: 700;
 }
+.text-muted {
+  color: $muted;
+}
 
-ul li {
-  margin-bottom: 0.4rem;
+@media (max-width: 991px) {
+  .resume {
+    width: 100%;
+    height: auto;
+    border-width: 6px;
+  }
+  .vertical-divider {
+    display: none;
+  }
 }

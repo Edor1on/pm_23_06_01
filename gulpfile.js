@@ -1,4 +1,3 @@
-// Імпорт основних модулів Gulp
 const { src, dest, watch, series, parallel } = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const cssnano = require('gulp-cssnano');
@@ -22,10 +21,10 @@ const html_task = () => {
 
 // ===== SCSS =====
 const scss_task = () => {
-    return src('app/scss/*.scss')
-        .pipe(sass())
+    return src('app/scss/style.scss')
+        .pipe(sass().on('error', sass.logError))
         .pipe(cssnano())
-        .pipe(rename({ suffix: '.min' }))
+        .pipe(rename('index.min.css'))
         .pipe(dest('dist/css'))
         .pipe(browserSync.stream());
 };
@@ -40,39 +39,38 @@ const js_task = () => {
         .pipe(browserSync.stream());
 };
 
-// ===== Зображення =====
-const img_task = () => {
-    return src('app/img/*')
-        .pipe(imagemin())
-        .pipe(dest('dist/img'));
-};
-
-// ===== Bootstrap CSS =====
+// ===== Bootstrap =====
 const bootstrapCSS = () => {
     return src('node_modules/bootstrap/dist/css/bootstrap.min.css')
         .pipe(dest('dist/css'));
 };
 
-// ===== Bootstrap JS =====
 const bootstrapJS = () => {
     return src('node_modules/bootstrap/dist/js/bootstrap.bundle.min.js')
         .pipe(dest('dist/js'));
 };
 
+// ===== Images =====
+const img_task = () => {
+    return src('app/img/**/*', { encoding: false })  // ← тут
+        .pipe(imagemin())
+        .pipe(dest('dist/img'));
+};
+
+
+
 // ===== BrowserSync =====
 const serve = () => {
     browserSync.init({
-        server: {
-            baseDir: 'dist'
-        }
+        server: { baseDir: 'dist' }
     });
 
-    watch('app/*.html', html_task);
-    watch('app/scss/*.scss', scss_task);
+    watch('app/html/*.html', html_task);
+    watch('app/scss/**/*.scss', scss_task);
     watch('app/js/*.js', js_task);
 };
 
-// ===== Експорти =====
+// ===== Export Tasks =====
 exports.html = html_task;
 exports.scss = scss_task;
 exports.js = js_task;
