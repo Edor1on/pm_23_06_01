@@ -5,195 +5,182 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Noel Taylor - CV</title>
 
-    <!-- Fonts & Bootstrap -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
-    <!-- Your compiled CSS (from gulp) -->
     <link rel="stylesheet" href="css/index.min.css">
 </head>
 <body>
 
 <div class="resume container shadow-lg my-5">
     <div class="row g-0 position-relative">
-
-        <!-- VERTICAL BLACK DIVIDER -->
         <div class="vertical-divider position-absolute top-0 bottom-0"></div>
 
-        <!-- LEFT SIDE -->
-        <aside class="col-md-4 left-column d-flex flex-column align-items-center text-center p-4">
-            <div class="profile-pic mt-4 mb-3">
-                <img src="img/judas.jpg" alt="profile" class="img-fluid rounded-circle profile-img">
+        <aside class="col-md-5 left-column d-flex flex-column">
+            <div class="left-column-inner d-flex flex-column flex-grow-1">
+
+                <div class="text-center profile-header">
+                    <h1 class="name mb-1">NOEL TAYLOR</h1>
+                    <p class="role small text-uppercase mb-3">Graphic & Web Designer</p>
+                    <div class="profile-pic">
+                        <img src="img/judas.jpg" alt="profile" class="img-fluid rounded-circle profile-img">
+                    </div>
+                </div>
+
+                <section class="w-100 text-center contact-section">
+                    <div class="section-heading section-heading-left mb-3 justify-content-center">
+                        <span class="icon-circle"><i class="bi bi-telephone-fill"></i></span> <h5 class="heading-text">CONTACT ME</h5>
+                    </div>
+                    <p class="mb-1 no-wrap">+1-718-310-5588</p>
+                    <p class="mb-1 no-wrap">www.yourwebsite.com</p>
+                    <p class="mb-2 no-wrap">769 Prudence Lincoln Park, MI</p>
+                    <hr class="section-sep">
+                </section>
+
+                <section class="w-100 text-center education-section">
+                    <div class="section-heading section-heading-left mb-3 justify-content-center">
+                        <span class="icon-circle"><i class="bi bi-mortarboard-fill"></i></span>
+                        <h5 class="heading-text">EDUCATION</h5>
+                    </div>
+                    <p class="fw-bold mb-0">STANFORD UNIVERSITY</p>
+                    <p class="small text-muted mb-1">MASTER DEGREE GRADUATE</p>
+                    <p class="small text-muted mb-2">2011 - 2013</p>
+                    <p class="fw-bold mb-0">UNIVERSITY OF CHICAGO</p>
+                    <p class="small text-muted mb-1">BACHELOR DEGREE GRADUATE</p>
+                    <p class="small text-muted mb-2">2007 - 2010</p>
+                    <hr class="section-sep">
+                </section>
+
+                <section class="w-100 text-center references-section mt-auto">
+                    <div class="section-heading section-heading-left mb-3 justify-content-center">
+                        <span class="icon-circle"><i class="bi bi-people-fill"></i></span>
+                        <h5 class="heading-text">REFERENCES</h5>
+                    </div>
+                    <p class="fw-bold mb-0">DARWIN B. MAGANA</p>
+                    <p class="small text-muted mb-0 no-wrap">2813 Shobe Lane Mancos, CO.</p>
+                    <p class="small text-muted mb-0 no-wrap">Tel: +1-970-533-3393</p>
+                    <p class="small text-muted mb-2 no-wrap">Email: www.yourwebsite.com</p>
+                    <p class="fw-bold mb-0">ROBERT J. BELVIN</p>
+                    <p class="small text-muted mb-0 no-wrap">2119 Fairfax Drive Newark, NJ.</p>
+                    <p class="small text-muted mb-0 no-wrap">Tel: +1-908-987-5103</p>
+                    <p class="small text-muted">Email: www.yourwebsite.com</p>
+                </section>
+
             </div>
-
-            <h3 class="fw-bold">NOEL TAYLOR</h3>
-            <p class="small text-uppercase text-muted mb-4">Graphic & Web Designer</p>
-
-            <!-- CONTACT -->
-            <section class="w-100 text-start">
-                <h5 class="section-heading">
-                    <i class="bi bi-person-lines-fill icon-teal me-2"></i>
-                    <span class="heading-text">CONTACT ME</span>
-                </h5>
-
-                <p class="mb-1"><i class="bi bi-telephone icon-teal me-2"></i> +1-718-310-5588</p>
-                <p class="mb-1"><i class="bi bi-globe icon-teal me-2"></i> www.yourwebsite.com</p>
-                <p class="mb-3"><i class="bi bi-geo-alt icon-teal me-2"></i> 769 Prudence, Lincoln Park, MI</p>
-
-                <hr class="section-sep">
-            </section>
-
-            <!-- EDUCATION -->
-            <section class="w-100 text-start mt-3">
-                <h5 class="section-heading">
-                    <i class="bi bi-mortarboard-fill icon-teal me-2"></i>
-                    <span class="heading-text">EDUCATION</span>
-                </h5>
-
-                <p class="fw-bold mb-1">Stanford University</p>
-                <p class="small text-muted mb-0">Master Degree Graduate</p>
-                <p class="small text-muted mb-2">2011 - 2013</p>
-
-                <p class="fw-bold mb-1">University of Chicago</p>
-                <p class="small text-muted mb-0">Bachelor Degree Graduate</p>
-                <p class="small text-muted mb-2">2007 - 2010</p>
-
-                <hr class="section-sep">
-            </section>
-
-            <!-- REFERENCES -->
-            <section class="w-100 text-start mt-3">
-                <h5 class="section-heading">
-                    <i class="bi bi-people-fill icon-teal me-2"></i>
-                    <span class="heading-text">REFERENCES</span>
-                </h5>
-
-                <p class="fw-bold mb-1">Darwin B. Magana</p>
-                <p class="small text-muted mb-0">2813 Shobe Lane, Mancos, CO</p>
-                <p class="small text-muted mb-0">Tel: +1-970-533-3393</p>
-                <p class="small text-muted mb-2">Email: www.yourwebsite.com</p>
-
-                <p class="fw-bold mb-1">Robert J. Belvin</p>
-                <p class="small text-muted mb-0">2119 Fairfax Drive, Newark, NJ</p>
-                <p class="small text-muted mb-0">Tel: +1-908-987-5103</p>
-                <p class="small text-muted">Email: www.yourwebsite.com</p>
-            </section>
         </aside>
 
-        <!-- RIGHT SIDE -->
-        <main class="col-md-8 right-column bg-white p-5">
-
-            <!-- ABOUT -->
+        <main class="col-md-7 right-column bg-white p-5">
             <section class="mb-4">
-                <h5 class="section-right-heading">
-                    <i class="bi bi-person-circle icon-teal me-2"></i>
-                    ABOUT ME
-                </h5>
-                <p class="small text-muted mb-0">
+                <div class="section-heading section-heading-right mb-3">
+                    <span class="icon-circle"><i class="bi bi-person-circle"></i></span>
+                    <h5 class="heading-text">ABOUT ME</h5>
+                </div>
+                <p class="right-text mb-0">
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                    when an unknown printer took a galley of type.
+                    when an unknown printer took a galley of type. It has survived not only five
+                    centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
                 </p>
             </section>
-
             <hr class="hr-dark">
-
-            <!-- JOB EXPERIENCE -->
             <section class="mb-4">
-                <h5 class="section-right-heading">
-                    <i class="bi bi-briefcase-fill icon-teal me-2"></i>
-                    JOB EXPERIENCE
-                </h5>
-
-                <div class="mb-3">
-                    <h6 class="fw-bold">Senior Web Designer <span class="float-end text-muted small">2020 – Present</span></h6>
-                    <p class="small text-muted fst-italic mb-1">Creative Agency / Chicago</p>
-                    <p class="small mb-0">Lorem Ipsum has been the industry's standard dummy text ever since 1500s.</p>
+                <div class="section-heading section-heading-right mb-3">
+                    <span class="icon-circle"><i class="bi bi-briefcase-fill"></i></span>
+                    <h5 class="heading-text">JOB EXPERIENCE</h5>
                 </div>
-
-                <div class="mb-3">
-                    <h6 class="fw-bold">Graphic Designer <span class="float-end text-muted small">2015 – 2020</span></h6>
-                    <p class="small text-muted fst-italic mb-1">Creative Market / Chicago</p>
-                    <p class="small mb-0">Lorem Ipsum has been the industry's standard dummy text ever since 1500s.</p>
+                <div class="job-item mb-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6 class="job-title fw-bold text-uppercase mb-1">SENIOR WEB DESIGNER</h6>
+                            <p class="job-company fst-italic text-muted mb-2">Creative Agency / Chicago</p>
+                        </div>
+                        <div class="job-years text-muted">2020 - Present</div>
+                    </div>
+                    <p class="right-text mb-0">Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.</p>
                 </div>
-
-                <div>
-                    <h6 class="fw-bold">Marketing Manager <span class="float-end text-muted small">2013 – 2015</span></h6>
-                    <p class="small text-muted fst-italic mb-1">Manufacturing Agency / NJ</p>
-                    <p class="small mb-0">Lorem Ipsum has been the industry's standard dummy text ever since 1500s.</p>
+                <div class="job-item mb-3">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6 class="job-title fw-bold text-uppercase mb-1">GRAPHIC DESIGNER</h6>
+                            <p class="job-company fst-italic text-muted mb-2">Creative Market / Chicago</p>
+                        </div>
+                        <div class="job-years text-muted">2015 - 2020</div>
+                    </div>
+                    <p class="right-text mb-0">Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.</p>
+                </div>
+                <div class="job-item">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6 class="job-title fw-bold text-uppercase mb-1">MARKETING MANAGER</h6>
+                            <p class="job-company fst-italic text-muted mb-2">Manufacturing Agency / NJ</p>
+                        </div>
+                        <div class="job-years text-muted">2013 - 2015</div>
+                    </div>
+                    <p class="right-text mb-0">Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.</p>
                 </div>
             </section>
-
             <hr class="hr-dark">
-
-            <!-- SKILLS -->
-            <section class="mb-4">
-                <h5 class="section-right-heading">
-                    <i class="bi bi-bar-chart-line-fill icon-teal me-2"></i>
-                    SKILLS
-                </h5>
-
-                <div class="row gy-2">
-                    <div class="col-6">
-                        <p class="small mb-1">Adobe Photoshop</p>
-                        <div class="skill-line"><div class="skill-fill" style="width:90%"></div></div>
-                    </div>
-                    <div class="col-6">
-                        <p class="small mb-1">Adobe Illustrator</p>
+            <section class="skills-section mt-4">
+                <div class="section-heading section-heading-right mb-3">
+                    <span class="icon-circle"><i class="bi bi-pie-chart-fill"></i></span>
+                    <h5 class="heading-text">SKILLS</h5>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <p class="skill-label">Adobe Photoshop</p>
                         <div class="skill-line"><div class="skill-fill" style="width:85%"></div></div>
                     </div>
-                    <div class="col-6">
-                        <p class="small mb-1">Microsoft Word</p>
+                    <div class="skill-item">
+                        <p class="skill-label">Adobe Illustrator</p>
                         <div class="skill-line"><div class="skill-fill" style="width:80%"></div></div>
                     </div>
-                    <div class="col-6">
-                        <p class="small mb-1">Microsoft PowerPoint</p>
+                    <div class="skill-item">
+                        <p class="skill-label">Microsoft Word</p>
+                        <div class="skill-line"><div class="skill-fill" style="width:75%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <p class="skill-label">Microsoft PowerPoint</p>
                         <div class="skill-line"><div class="skill-fill" style="width:70%"></div></div>
                     </div>
-                    <div class="col-12">
-                        <p class="small mb-1">HTML-5 / CSS-3</p>
-                        <div class="skill-line"><div class="skill-fill" style="width:95%"></div></div>
+                    <div class="skill-item">
+                        <p class="skill-label">HTML-5 / CSS-3</p>
+                        <div class="skill-line"><div class="skill-fill" style="width:90%"></div></div>
                     </div>
                 </div>
             </section>
-
-            <hr class="hr-dark">
-
-            <!-- LANGUAGE & HOBBIES -->
-            <section class="row">
-                <div class="col-6">
-                    <h5 class="section-right-heading">
-                        <i class="bi bi-translate icon-teal me-2"></i>
-                        LANGUAGE
-                    </h5>
-                    <ul class="list-unstyled small mb-0">
-                        <li>● English</li>
-                        <li>● Spanish</li>
-                        <li>● French</li>
-                        <li>● German</li>
-                    </ul>
-                </div>
-
-                <div class="col-6">
-                    <h5 class="section-right-heading">
-                        <i class="bi bi-heart-fill icon-teal me-2"></i>
-                        HOBBIES
-                    </h5>
-                    <ul class="list-unstyled small mb-0">
-                        <li>● Reading Books</li>
-                        <li>● Traveling</li>
-                        <li>● Playing Chess</li>
-                    </ul>
+            <hr class="section-divider">
+            <section class="lang-hobby-section mt-4">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="section-heading section-heading-right mb-3">
+                            <span class="icon-circle"><i class="bi bi-globe-americas"></i></span>
+                            <h5 class="heading-text">LANGUAGE</h5>
+                        </div>
+                        <ul class="list-unstyled lang-list">
+                            <li><span class="dot">•</span>English</li>
+                            <li><span class="dot">•</span>French</li>
+                            <li><span class="dot">•</span>Spanish</li>
+                            <li><span class="dot">•</span>German</li>
+                        </ul>
+                    </div>
+                    <div class="col-6">
+                        <div class="section-heading section-heading-right mb-3">
+                            <span class="icon-circle"><i class="bi bi-flag-fill"></i></span>
+                            <h5 class="heading-text">HOBBIES</h5>
+                        </div>
+                        <ul class="list-unstyled hobby-list">
+                            <li><span class="dot">•</span> Reading Books</li>
+                            <li><span class="dot">•</span> Traveling</li>
+                            <li><span class="dot">•</span> Playing Chess</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
-
         </main>
-
     </div>
 </div>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
