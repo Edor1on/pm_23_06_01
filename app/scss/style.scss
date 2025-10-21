@@ -2,7 +2,7 @@
 $font: 'Poppins', sans-serif;
 $accent: #18b7a2;
 $left-bg: #e1f5f2;
-$divider-dark-color: #444;
+$divider-dark-color: #000;
 $dark: #0b0b0b;
 $muted: #6c757d;
 $paper: #ffffff;
@@ -18,11 +18,11 @@ body {
 }
 
 .resume {
-  width: 210mm;
-  min-height: 297mm;
+  width: 250mm;
+  min-height: 280mm;
   margin: 2rem auto;
   background: $paper;
-  border: 7px solid $accent;
+  border: 15px solid $accent;
   box-shadow: 0 10px 30px rgba(0,0,0,0.12);
   position: relative;
   overflow: hidden;
@@ -31,7 +31,8 @@ body {
 // ===== DIVIDERS =====
 .vertical-divider {
   position: absolute;
-  left: 41.667%;
+  left: 43.3%;
+  transform: translateX(-50%);
   width: 1px;
   background: $divider-dark-color;
   top: 0;
@@ -44,67 +45,103 @@ body {
 .right-column .section-divider {
   border: none;
   border-top: 1px solid $divider-dark-color;
-  margin: 18px 0;
+  opacity: 1;
+  margin: 30px 0;
 }
 
-// ===== COLUMNS & SECTIONS =====
+// ===== SECTIONS =====
 .section-heading {
   display: flex;
   align-items: center;
   gap: 12px;
   .icon-circle {
-    width: 40px; height: 40px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: $accent;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     flex-shrink: 0;
   }
   .heading-text {
+    color: $dark;
     text-transform: uppercase;
-    font-weight: 800;
+    font-weight: 700;
     letter-spacing: 1px;
-    font-size: 1.05rem;
+    font-size: 1.6rem;
     margin: 0;
   }
 }
 
+// ===== LEFT COLUMN =====
 .left-column {
   padding: 0;
 }
 
 .left-column-inner {
   background: $left-bg;
-  // --- ЗМІНЕНО ТУТ --- (було 34px 28px)
-  padding: 34px 40px;
-  width: calc(100% - 15px);
+  padding: 30px 40px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   height: 100%;
 
+  text-align: center;
+
+  width: 90%;
+  margin: 0 auto;
+
   .profile-header {
-    margin-bottom: 0;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
   }
 
-  .name { font-size: 30px; font-weight: 800; margin: 6px 0; }
-  .role { font-weight: 600; color: darken($accent, 15%); margin-bottom: 20px; }
+  .name {
+    font-size: 36px;
+    font-weight: 1000;
+    margin: 50px 0 0 0;
+  }
+
+  .role {
+    font-weight: 400;
+    color: $dark;
+    margin-bottom: 15px;
+    letter-spacing: 2.5px;
+  }
+
+  .profile-pic-container {
+    text-align: center;
+    margin-bottom: 50px;
+  }
 
   .profile-pic {
-    width: 180px; height: 180px;
+    width: 250px;
+    height: 250px;
     background: #fff;
-    padding: 6px;
+    padding: 10px;
     border-radius: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+    margin: 0 auto;
+    display: inline-block;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
   }
 
-  p { font-size: 0.86rem; line-height: 1.15; margin-bottom: 8px; }
-  .no-wrap { white-space: nowrap; }
+  p {
+    font-size: 0.95rem;
+    line-height: 1.70;
+    margin-bottom: 30px;
+  }
+
+  .no-wrap {
+    white-space: nowrap;
+  }
 
   .contact-section,
   .education-section,
@@ -117,21 +154,38 @@ body {
       margin-bottom: 1rem;
     }
 
-    p.fw-bold {
-      text-transform: uppercase;
-    }
+  }
+
+  .education-section {
+    margin-top: 1px;
+  }
+
+  .references-section {
+    margin-top: 1px;
   }
 }
 
+// ===== RIGHT COLUMN =====
 .right-column {
   background: $paper;
-  // --- ЗМІНЕНО ТУТ --- (було 44px 52px)
-  padding: 44px 40px;
+  padding: 30px 40px;
 
-  .right-text { color: $muted; font-size: 0.95rem; line-height: 1.6; }
+  .right-text {
+    color: $muted;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
 
   .job-item {
-    .job-company { color: $muted; font-style: italic; margin-bottom: 8px; }
+    .job-company {
+      color: $dark;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+    .job-years {
+      color: $divider-dark-color; // $dark - це твоя змінна для чорного кольору
+      font-size: 0.95rem;
+    }
   }
 
   .skills-grid {
@@ -140,19 +194,31 @@ body {
     gap: 20px 40px;
   }
 
-  p.skill-label {
-    margin-bottom: 8px;
-    font-weight: 500;
-    text-transform: none;
-    font-size: 0.9rem;
+  .skill-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .skill-label {
+    font-weight: 600;
+    font-size: 0.65rem;
+    color: $dark;
+    margin: 0;
+    flex: 1;
+    text-align: left;
   }
 
   .skill-line {
-    height: 12px;
+    flex-shrink: 0;
+    height: 10px;
+    width: 65px;
     background-color: #fff;
-    border-radius: 20px;
-    border: 2px solid #e0e0e0;
+    border-radius: 2px;
+    border: 2px solid #ccc;
     padding: 2px;
+    position: relative;
   }
 
   .skill-fill {
@@ -167,7 +233,8 @@ body {
     margin-right: 6px;
   }
 
-  .lang-list, .hobby-list {
+  .lang-list,
+  .hobby-list {
     li {
       font-weight: 600;
       font-size: 0.95rem;
@@ -177,5 +244,8 @@ body {
     }
   }
 
-  .lang-list { display: grid; grid-template-columns: repeat(2, 1fr); }
+  .lang-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
