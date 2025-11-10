@@ -183,7 +183,7 @@ body {
       margin-bottom: 8px;
     }
     .job-years {
-      color: $divider-dark-color; // $dark - це твоя змінна для чорного кольору
+      color: $divider-dark-color;
       font-size: 0.95rem;
     }
   }
@@ -247,5 +247,48 @@ body {
   .lang-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// === СТИЛІ ДЛЯ ЗАВДАННЯ 2 (АКОРДЕОН) ===
+// Ці стилі застосовуються до класів, які ми додали в HTML
+
+.right-column .toggle-header {
+  // Додаємо стилі до .section-heading, який тепер .toggle-header
+  justify-content: space-between;
+  cursor: pointer;
+
+  // Стилізуємо групу "іконка + заголовок"
+  .section-heading-left-group {
+    display: flex;
+    align-items: center;
+    gap: 12px; // Зберігаємо оригінальний відступ
+  }
+}
+
+.right-column .toggle-arrow {
+  font-size: 1.5rem;
+  color: $accent;
+  transition: transform 0.3s ease; // Плавна анімація обертання
+
+  // Клас для обертання стрілки
+  &.is-rotated {
+    transform: rotate(180deg);
+  }
+}
+
+.right-column .toggle-content {
+  // Анімація "виїжджання"
+  max-height: 1000px; // Встановіть достатньо велике значення
+  overflow: hidden;
+  // Анімуємо висоту та відступ для плавності
+  transition: max-height 0.4s ease-out, margin-top 0.4s ease-out;
+  margin-top: 1rem; // Додаємо відступ зверху, коли блок відкритий
+
+  // Клас для приховування контенту
+  &.is-hidden {
+    max-height: 0;
+    margin-top: 0; // Прибираємо відступ, коли блок закритий
+    overflow: hidden;
   }
 }
