@@ -1,0 +1,80 @@
+{
+  "profile": {
+    "firstName": "Noel",
+    "lastName": "Taylor",
+    "role": "Graphic & Web Designer",
+    "profilePic": "img/judas.jpg",
+    "about": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+  },
+  "contact": {
+    "phone": "+1-718-310-5588",
+    "website": "www.yourwebsite.com",
+    "address": "769 Prudence Lincoln Park, MI"
+  },
+  "education": [
+    {
+      "university": "STANFORD UNIVERSITY",
+      "degree": "MASTER DEGREE GRADUATE",
+      "years": "2011 - 2013"
+    },
+    {
+      "university": "UNIVERSITY OF CHICAGO",
+      "degree": "BACHELOR DEGREE GRADUATE",
+      "years": "2007 - 2010"
+    }
+  ],
+  "references": [
+    {
+      "name": "DARWIN B. MAGANA",
+      "lines": [
+        "2813 Shobe Lane Mancos, CO.",
+        "Tel: +1-970-533-3393",
+        "Email: www.yourwebsite.com"
+      ]
+    },
+    {
+      "name": "ROBERT J. BELVIN",
+      "lines": [
+        "2119 Fairfax Drive Newark, NJ.",
+        "Tel: +1-908-987-5103",
+        "Email: www.yourwebsite.com"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "title": "SENIOR WEB DESIGNER",
+      "company": "Creative Agency / Chicago",
+      "years": "2020 - Present",
+      "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type."
+    },
+    {
+      "title": "GRAPHIC DESIGNER",
+      "company": "Creative Market / Chicago",
+      "years": "2015 - 2020",
+      "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type."
+    },
+    {
+      "title": "MARKETING MANAGER",
+      "company": "Manufacturing Agency / NJ",
+      "years": "2013 - 2015",
+      "description": "Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type."
+    }
+  ],
+  "skills": [
+    { "name": "Adobe Photoshop", "level": 85 },
+    { "name": "Adobe Illustrator", "level": 80 },
+    { "name": "Microsoft Word", "level": 75 },
+    { "name": "Microsoft PowerPoint", "level": 70 },
+    { "name": "HTML-5 / CSS-3", "level": 90 },
+    { "name": "JavaScript (ES6+)", "level": 65 },
+    { "name": "SASS/SCSS", "level": 80 },
+    { "name": "Gulp.js", "level": 60 }
+  ],
+  "languages": [
+    "English", "French", "Spanish", "German"
+  ],
+  "hobbies": [
+    "Reading Books", "Traveling", "Playing Chess"
+  ]
+}

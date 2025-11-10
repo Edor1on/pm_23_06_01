@@ -13,6 +13,8 @@
 </head>
 <body>
 
+<div id="error-container" class="alert alert-danger m-3" style="display: none;"></div>
+
 <div class="resume container shadow-lg my-5">
   <div class="row g-0 position-relative">
     <div class="vertical-divider position-absolute top-0 bottom-0"></div>
@@ -21,13 +23,13 @@
       <div class="left-column-inner d-flex flex-column flex-grow-1">
 
         <div class="profile-header">
-          <h1 class="name" id="personName">NOEL TAYLOR</h1>
-          <p class="role small text-uppercase">Graphic & Web Designer</p>
+          <h1 class="name" id="personName"></h1>
+          <p class="role small text-uppercase" id="personRole"></p>
         </div>
 
         <div class="profile-pic-container text-center">
           <div class="profile-pic">
-            <img src="img/judas.jpg" alt="profile" class="img-fluid rounded-circle profile-img">
+            <img src="" alt="profile" class="img-fluid rounded-circle profile-img" id="profilePic">
           </div>
         </div>
 
@@ -36,9 +38,9 @@
             <span class="icon-circle"><i class="bi bi-telephone-fill"></i></span> <h5 class="heading-text">CONTACT ME</h5>
           </div>
 
-          <p class="mb-1 no-wrap"><i class="bi bi-telephone-fill me-2"></i>+1-718-310-5588</p>
-          <p class="mb-1 no-wrap"><i class="bi bi-globe me-2"></i>www.yourwebsite.com</p>
-          <p class="mb-2 no-wrap"><i class="bi bi-geo-alt-fill me-2"></i>769 Prudence Lincoln Park, MI</p>
+          <p class="mb-1 no-wrap"><i class="bi bi-telephone-fill me-2"></i><span id="contactPhone"></span></p>
+          <p class="mb-1 no-wrap"><i class="bi bi-globe me-2"></i><span id="contactWebsite"></span></p>
+          <p class="mb-2 no-wrap"><i class="bi bi-geo-alt-fill me-2"></i><span id="contactAddress"></span></p>
 
           <hr class="section-sep">
         </section>
@@ -48,12 +50,9 @@
             <span class="icon-circle"><i class="bi bi-mortarboard-fill"></i></span>
             <h5 class="heading-text">EDUCATION</h5>
           </div>
-          <p class="fw-bold mb-0">STANFORD UNIVERSITY</p>
-          <p class="small text-muted mb-1">MASTER DEGREE GRADUATE</p>
-          <p class="small text-muted mb-2">2011 - 2013</p>
-          <p class="fw-bold mb-0">UNIVERSITY OF CHICAGO</p>
-          <p class="small text-muted mb-1">BACHELOR DEGREE GRADUATE</p>
-          <p class="small text-muted mb-2">2007 - 2010</p>
+
+          <div id="education-container"></div>
+
           <hr class="section-sep">
         </section>
 
@@ -62,14 +61,9 @@
             <span class="icon-circle"><i class="bi bi-people-fill"></i></span>
             <h5 class="heading-text">REFERENCES</h5>
           </div>
-          <p class="fw-bold mb-0">DARWIN B. MAGANA</p>
-          <p class="small text-muted mb-0 no-wrap">2813 Shobe Lane Mancos, CO.</p>
-          <p class="small text-muted mb-0 no-wrap">Tel: +1-970-533-3393</p>
-          <p class="small text-muted mb-2 no-wrap">Email: www.yourwebsite.com</p>
-          <p class="fw-bold mb-0">ROBERT J. BELVIN</p>
-          <p class="small text-muted mb-0 no-wrap">2119 Fairfax Drive Newark, NJ.</p>
-          <p class="small text-muted mb-0 no-wrap">Tel: +1-908-987-5103</p>
-          <p class="small text-muted">Email: www.yourwebsite.com</p>
+
+          <div id="references-container"></div>
+
         </section>
 
       </div>
@@ -87,12 +81,7 @@
         </div>
 
         <div class="toggle-content is-hidden">
-          <p class="right-text mb-0">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-            when an unknown printer took a galley of type. It has survived not only five
-            centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-          </p>
+          <p class="right-text mb-0" id="about-me-container"></p>
         </div>
       </section>
 
@@ -108,36 +97,7 @@
         </div>
 
         <div class="toggle-content is-hidden">
-          <div class="job-item mb-3">
-            <div class="d-flex justify-content-between align-items-start">
-              <div>
-                <h6 class="job-title fw-bold text-uppercase mb-1">SENIOR WEB DESIGNER</h6>
-                <p class="job-company fst-italic text-muted mb-2">Creative Agency / Chicago</p>
-              </div>
-              <div class="job-years text-divider-dark-color">2020 - Present</div>
-            </div>
-            <p class="right-text mb-0">Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.</p>
-          </div>
-          <div class="job-item mb-3">
-            <div class="d-flex justify-content-between align-items-start">
-              <div>
-                <h6 class="job-title fw-bold text-uppercase mb-1">GRAPHIC DESIGNER</h6>
-                <p class="job-company fst-italic text-muted mb-2">Creative Market / Chicago</p>
-              </div>
-              <div class="job-years text-divider-dark-color">2015 - 2020</div>
-            </div>
-            <p class="right-text mb-0">Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.</p>
-          </div>
-          <div class="job-item">
-            <div class="d-flex justify-content-between align-items-start">
-              <div>
-                <h6 class="job-title fw-bold text-uppercase mb-1">MARKETING MANAGER</h6>
-                <p class="job-company fst-italic text-muted mb-2">Manufacturing Agency / NJ</p>
-              </div>
-              <div class="job-years text-divider-dark-color">2013 - 2015</div>
-            </div>
-            <p class="right-text mb-0">Lorem Ipsum has been the industry's standard dummy text ever since 1500s, when unknown printer took a galley of type.</p>
-          </div>
+          <div id="experience-container"></div>
         </div>
       </section>
 
@@ -153,8 +113,7 @@
         </div>
 
         <div class="toggle-content is-hidden">
-          <div class="skills-grid" id="skills-container">
-          </div>
+          <div class="skills-grid" id="skills-container"></div>
         </div>
       </section>
 
@@ -167,23 +126,14 @@
               <span class="icon-circle"><i class="bi bi-globe-americas"></i></span>
               <h5 class="heading-text">LANGUAGE</h5>
             </div>
-            <ul class="list-unstyled lang-list">
-              <li><span class="dot">•</span>English</li>
-              <li><span class="dot">•</span>French</li>
-              <li><span class="dot">•</span>Spanish</li>
-              <li><span class="dot">•</span>German</li>
-            </ul>
+            <ul class="list-unstyled lang-list" id="language-list"></ul>
           </div>
           <div class="col-6">
             <div class="section-heading section-heading-right mb-3">
               <span class="icon-circle"><i class="bi bi-flag-fill"></i></span>
               <h5 class="heading-text">HOBBIES</h5>
             </div>
-            <ul class="list-unstyled hobby-list">
-              <li><span class="dot">•</span> Reading Books</li>
-              <li><span class="dot">•</span> Traveling</li>
-              <li><span class="dot">•</span> Playing Chess</li>
-            </ul>
+            <ul class="list-unstyled hobby-list" id="hobby-list"></ul>
           </div>
         </div>
       </section>

@@ -2,75 +2,168 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   /**
-   * ЗАВДАННЯ 1: Встановлення повного ім'я користувача
-   * Реалізує функцію, що підставляє повне ім’я у елемент #personName.
+   * =============================================
+   * ЛАБОРАТОРНА РОБОТА 5: AJAX (Fetch API)
+   * =============================================
    */
-  function setUserName() {
-    // Ваше повне ім'я
-    const fullName = 'Noel Taylor'; // Вкажіть тут своє повне ім'я
 
-    const nameElement = document.getElementById('personName');
+  /**
+   * Головна асинхронна функція для завантаження та відображення даних
+   */
+  async function loadCVData() {
+    try {
+      // 1. Завантажуємо дані з data.json
+      const response = await fetch('data.json');
 
-    if (nameElement) {
-      // Використовуємо .textContent, щоб безпечно вставити текст
-      nameElement.textContent = fullName;
-    } else {
-      console.error('Елемент з ID "personName" не знайдено.');
+      // 2. Перевіряємо, чи успішний запит
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      // 3. Перетворюємо відповідь у JSON
+      const data = await response.json();
+
+      // 4. Викликаємо функції для наповнення сторінки
+      populateCV(data);
+
+    } catch (error) {
+      // 5. Обробка помилок
+      console.error('Could not load CV data:', error);
+      displayError('Не вдалося завантажити дані резюме. Будь ласка, спробуйте оновити сторінку.');
     }
   }
 
-  // Виклик функції для Завдання 1
-  setUserName();
+  /**
+   * Головна функція, що розподіляє дані по рендер-функціях
+   * @param {object} data - Об'єкт даних з data.json
+   */
+  function populateCV(data) {
+    // Профіль та Контакти
+    renderProfile(data.profile);
+    renderContact(data.contact);
+
+    // Секції лівої колонки
+    renderEducation(data.education, 'education-container');
+    renderReferences(data.references, 'references-container');
+
+    // Секції правої колонки
+    renderAbout(data.profile.about, 'about-me-container');
+    renderExperience(data.experience, 'experience-container');
+    renderSkills(data.skills, 'skills-container'); // Використання функції з ЛР4
+    renderSimpleList(data.languages, 'language-list');
+    renderSimpleList(data.hobbies, 'hobby-list');
+  }
+
+  // === Render-функції ===
+
+  function renderProfile(profile) {
+    document.getElementById('personName').textContent = `${profile.firstName} ${profile.lastName}`;
+    document.getElementById('personRole').textContent = profile.role;
+    document.getElementById('profilePic').src = profile.profilePic;
+    document.getElementById('profilePic').alt = `${profile.firstName} ${profile.lastName} profile picture`;
+  }
+
+  function renderContact(contact) {
+    document.getElementById('contactPhone').textContent = contact.phone;
+    document.getElementById('contactWebsite').textContent = contact.website;
+    document.getElementById('contactAddress').textContent = contact.address;
+  }
+
+  function renderAbout(aboutText, containerId) {
+    document.getElementById(containerId).textContent = aboutText;
+  }
+
+  function renderEducation(educationItems, containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = educationItems.map(item => `
+      <p class="fw-bold mb-0">${item.university}</p>
+      <p class="small text-muted mb-1">${item.degree}</p>
+      <p class="small text-muted mb-2">${item.years}</p>
+    `).join('');
+  }
+
+  function renderReferences(referenceItems, containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = referenceItems.map(item => `
+      <p class="fw-bold mb-0">${item.name}</p>
+      ${item.lines.map(line => `<p class="small text-muted mb-0 no-wrap">${line}</p>`).join('')}
+      <br> `).join('').replace(/<br>$/, ''); // Видаляємо останній <br>
+  }
+
+  function renderExperience(jobItems, containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = jobItems.map((job, index) => `
+      <div class="job-item ${index === jobItems.length - 1 ? '' : 'mb-3'}">
+        <div class="d-flex justify-content-between align-items-start">
+          <div>
+            <h6 class="job-title fw-bold text-uppercase mb-1">${job.title}</h6>
+            <p class="job-company fst-italic text-muted mb-2">${job.company}</p>
+          </div>
+          <div class="job-years text-divider-dark-color">${job.years}</div>
+        </div>
+        <p class="right-text mb-0">${job.description}</p>
+      </div>
+    `).join('');
+  }
+
+  function renderSimpleList(items, containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = items.map(item =>
+      `<li><span class="dot">•</span>${item}</li>`
+    ).join('');
+  }
 
   /**
-   * ЗАВДАННЯ 2: Перемикач видимості секцій (Акордеон)
-   * Додає обробники подій 'click' до всіх заголовків секцій з класом .toggle-header.
+   * Відображення помилки на сторінці
+   * @param {string} message - Текст помилки
+   */
+  function displayError(message) {
+    const errorContainer = document.getElementById('error-container');
+    if (errorContainer) {
+      errorContainer.textContent = message;
+      errorContainer.style.display = 'block';
+    }
+  }
+
+
+  /**
+   * =============================================
+   * ЗАВДАННЯ З ПОПЕРЕДНІХ ЛАБ (залишаємо без змін)
+   * =============================================
+   */
+
+  /**
+   * ЗАВДАННЯ 2 (ЛР4): Перемикач видимості секцій (Акордеон)
    */
   function setupSectionToggles() {
-    // Знаходимо всі заголовки, які мають функціонал перемикання
     const toggleHeaders = document.querySelectorAll('.toggle-header');
 
     toggleHeaders.forEach(header => {
       header.addEventListener('click', () => {
-        // Знаходимо іконку-стрілку всередині заголовка
         const arrowIcon = header.querySelector('.toggle-arrow');
-
-        // Знаходимо наступний елемент (це має бути наш .toggle-content)
         const content = header.nextElementSibling;
 
         if (arrowIcon && content && content.classList.contains('toggle-content')) {
-          // Перемикаємо клас для обертання стрілки
           arrowIcon.classList.toggle('is-rotated');
-
-          // Перемикаємо клас для приховування/показу контенту
           content.classList.toggle('is-hidden');
         }
       });
     });
   }
 
-  // Виклик функції для Завдання 2
-  setupSectionToggles();
-
   /**
-   * ЗАВДАННЯ 3: Динамічна генерація списку навичок
-   * Оголошує масив даних та генерує HTML-розмітку, вставляючи її в контейнер.
+   * ЗАВДАННЯ 3 (ЛР4): Динамічна генерація списку навичок
+   * (Тепер ця функція викликається з populateCV)
    */
-
-    // 1. Масив даних (навички)
-  const skillsData = [
-      { name: 'Adobe Photoshop', level: 85 },
-      { name: 'Adobe Illustrator', level: 80 },
-      { name: 'Microsoft Word', level: 75 },
-      { name: 'Microsoft PowerPoint', level: 70 },
-      { name: 'HTML-5 / CSS-3', level: 90 },
-      { name: 'JavaScript (ES6+)', level: 65 },
-      { name: 'SASS/SCSS', level: 80 },
-      { name: 'Gulp.js', level: 60 }
-    ];
-
-  // 2. Функція для генерації та вставки розмітки
-  function generateSkills(skills, containerId) {
+  function renderSkills(skills, containerId) {
     const container = document.getElementById(containerId);
 
     if (!container) {
@@ -78,26 +171,23 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // 3. Очищення вмісту контейнера
-    container.innerHTML = '';
-
-    // Створюємо HTML-рядки для кожної навички
-    const skillsHTML = skills.map(skill => {
-      return `
-        <div class="skill-item">
-          <p class="skill-label">${skill.name}</p>
-          <div class="skill-line">
-            <div class="skill-fill" style="width: ${skill.level}%"></div>
-          </div>
+    container.innerHTML = skills.map(skill => `
+      <div class="skill-item">
+        <p class="skill-label">${skill.name}</p>
+        <div class="skill-line">
+          <div class="skill-fill" style="width: ${skill.level}%"></div>
         </div>
-      `;
-    }).join(''); // Об'єднуємо всі рядки в один
-
-    // Вставляємо згенерований HTML у контейнер
-    container.innerHTML = skillsHTML;
+      </div>
+    `).join('');
   }
 
-  // Виклик функції для Завдання 3
-  generateSkills(skillsData, 'skills-container');
+
+  // === ЗАПУСК УСІХ ФУНКЦІЙ ===
+
+  // 1. Запускаємо завантаження даних
+  loadCVData();
+
+  // 2. Налаштовуємо акордеон (незалежно від даних)
+  setupSectionToggles();
 
 });
