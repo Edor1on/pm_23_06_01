@@ -10,7 +10,7 @@ const browserSync = require('browser-sync').create();
 
 // ===== HTML =====
 const html_task = () => {
-  return src('app/html/*.html')
+  return src(['src/html/*.html', '!src/html/_*.html']) // <-- ОНОВЛЕНО
     .pipe(fileInclude({
       prefix: '@@',
       basepath: '@file'
@@ -21,7 +21,7 @@ const html_task = () => {
 
 // ===== SCSS =====
 const scss_task = () => {
-  return src('app/scss/style.scss')
+  return src('src/scss/style.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(cssnano())
     .pipe(rename('index.min.css'))
@@ -31,7 +31,7 @@ const scss_task = () => {
 
 // ===== JavaScript =====
 const js_task = () => {
-  return src('app/js/*.js')
+  return src('src/js/*.js')
     .pipe(concat('script.js'))
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
@@ -52,14 +52,14 @@ const bootstrapJS = () => {
 
 // ===== Images =====
 const img_task = () => {
-  return src('app/img/**/*', { encoding: false })
+  return src('src/img/**/*', { encoding: false })
     .pipe(imagemin())
     .pipe(dest('dist/img'));
 };
 
 // ===== JSON Data (НОВЕ ЗАВДАННЯ) =====
 const data_task = () => {
-  return src('app/data/data.json') // Шлях до твого JSON
+  return src('src/data/data.json') // Шлях до твого JSON
     .pipe(dest('dist'))
     .pipe(browserSync.stream());
 };
@@ -70,10 +70,10 @@ const serve = () => {
     server: { baseDir: 'dist' }
   });
 
-  watch('app/html/*.html', html_task);
-  watch('app/scss/**/*.scss', scss_task);
-  watch('app/js/*.js', js_task);
-  watch('app/data.json', data_task); // Додаємо відстеження JSON
+  watch('src/html/*.html', html_task);
+  watch('src/scss/**/*.scss', scss_task);
+  watch('src/js/*.js', js_task);
+  watch('src/data.json', data_task); // Додаємо відстеження JSON
 };
 
 // ===== Export Tasks =====

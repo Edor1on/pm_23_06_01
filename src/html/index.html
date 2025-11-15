@@ -1,0 +1,73 @@
+@@include('_header.html')
+
+<main class="col-md-7 right-column bg-white p-5">
+
+  <section class="mb-4">
+    <div class="section-heading section-heading-right toggle-header">
+      <div class="section-heading-left-group">
+        <span class="icon-circle"><i class="bi bi-person-circle"></i></span>
+        <h5 class="heading-text">ABOUT ME</h5>
+      </div>
+      <i class="bi bi-chevron-down toggle-arrow"></i>
+    </div>
+
+    <div class="toggle-content is-hidden">
+      <p class="right-text mb-0" id="about-me-container"></p>
+    </div>
+  </section>
+
+  <hr class="hr-dark">
+
+  <section class="mb-4">
+    <div class="section-heading section-heading-right toggle-header">
+      <div class="section-heading-left-group">
+        <span class="icon-circle"><i class="bi bi-briefcase-fill"></i></span>
+        <h5 class="heading-text">JOB EXPERIENCE</h5>
+      </div>
+      <i class="bi bi-chevron-down toggle-arrow"></i>
+    </div>
+
+    <div class="toggle-content is-hidden">
+      <div id="experience-container"></div>
+    </div>
+  </section>
+
+  <hr class="hr-dark">
+
+  <section class="skills-section mt-4">
+    <div class="section-heading section-heading-right toggle-header">
+      <div class="section-heading-left-group">
+        <span class="icon-circle"><i class="bi bi-pie-chart-fill"></i></span>
+        <h5 class="heading-text">SKILLS</h5>
+      </div>
+      <i class="bi bi-chevron-down toggle-arrow"></i>
+    </div>
+
+    <div class="toggle-content is-hidden">
+      <div class="skills-grid" id="skills-container"></div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <section class="lang-hobby-section mt-4">
+    <div class="row">
+      <div class="col-6">
+        <div class="section-heading section-heading-right mb-3">
+          <span class="icon-circle"><i class="bi bi-globe-americas"></i></span>
+          <h5 class="heading-text">LANGUAGE</h5>
+        </div>
+        <ul class="list-unstyled lang-list" id="language-list"></ul>
+      </div>
+      <div class="col-6">
+        <div class="section-heading section-heading-right mb-3">
+          <span class="icon-circle"><i class="bi bi-flag-fill"></i></span>
+          <h5 class="heading-text">HOBBIES</h5>
+        </div>
+        <ul class="list-unstyled hobby-list" id="hobby-list"></ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+@@include('_footer.html')

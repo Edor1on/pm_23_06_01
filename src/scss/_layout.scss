@@ -1,0 +1,31 @@
+.resume {
+  width: 250mm;
+  min-height: 280mm;
+  margin: 2rem auto;
+  background: $paper;
+  border: 15px solid $accent;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+// ===== DIVIDERS =====
+.vertical-divider {
+  position: absolute;
+  left: 43.3%;
+  transform: translateX(-50%);
+  width: 1px;
+  background: $divider-dark-color;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+}
+
+.left-column .section-sep,
+.right-column .hr-dark,
+.right-column .section-divider {
+  border: none;
+  border-top: 1px solid $divider-dark-color;
+  opacity: 1;
+  margin: 30px 0;
+}

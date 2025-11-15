@@ -1,0 +1,88 @@
+// ===== LEFT COLUMN =====
+.left-column {
+  padding: 0;
+}
+
+.left-column-inner {
+  background: $left-bg;
+  padding: 30px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+
+  text-align: center;
+
+  width: 90%;
+  margin: 0 auto;
+
+  .profile-header {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+
+  .name {
+    font-size: 36px;
+    font-weight: 1000;
+    margin: 50px 0 0 0;
+  }
+
+  .role {
+    font-weight: 400;
+    color: $dark;
+    margin-bottom: 15px;
+    letter-spacing: 2.5px;
+  }
+
+  .profile-pic-container {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .profile-pic {
+    width: 250px;
+    height: 250px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: inline-block;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.70;
+    margin-bottom: 30px;
+  }
+
+  .no-wrap {
+    white-space: nowrap;
+  }
+
+  .contact-section,
+  .education-section,
+  .references-section {
+    text-align: center;
+    margin-bottom: 0;
+
+    .section-heading {
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+  }
+
+  .education-section {
+    margin-top: 1px;
+  }
+
+  .references-section {
+    margin-top: 1px;
+  }
+}
